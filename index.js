@@ -83,20 +83,13 @@ function printMatrix(matrix, minValueInfo) {
         const mark = rowIsMin ? '*' : '-';
 
         const rowNumber = String(rowIndex + 1).padStart(2);
-
-        const rowValues = row
-            .map(n => String(n).padStart(5))
-            .join('');
-
-        const positive = String(smallestPositive)
-            .padStart(3);
+        const rowValues = row.map(n => String(n).padStart(5)).join('');
+        const positive = String(smallestPositive).padStart(3);
 
         console.log(`${mark} Строка ${rowNumber}: ${rowValues} | Минимальное положительное: ${positive ?? '-'} | Нужно заменить: ${getCountReplacements(row)}`);
     });
 
-    console.log(
-        `\nМинимальное число в матрице: ${minValueInfo.value} (строка ${minValueInfo.row + 1}, столбец ${minValueInfo.col + 1})\n`
-    );
+    console.log(`\nМинимальное число в матрице: ${minValueInfo.value} (строка ${minValueInfo.row + 1}, столбец ${minValueInfo.col + 1})\n`);
 }
 
 const matrix = createMatrix();
